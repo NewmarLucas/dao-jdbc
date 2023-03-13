@@ -51,7 +51,7 @@ public class SellerDaoJDBC implements SellerDao {
 			rs = st.executeQuery();
 			if (rs.next()) {
 				Department dep = instantiateDepartment(rs);
-				Seller obj = instatiateSeller(rs, dep);
+				Seller obj = instantiateSeller(rs, dep);
 
 				return obj;
 			}
@@ -64,7 +64,7 @@ public class SellerDaoJDBC implements SellerDao {
 		}
 	}
 
-	private Seller instatiateSeller(ResultSet rs, Department dep) throws SQLException {
+	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
 		Seller obj = new Seller();
 		obj.setId(rs.getInt("Id"));
 		obj.setName(rs.getString("Name"));
